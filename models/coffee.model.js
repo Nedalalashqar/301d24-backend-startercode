@@ -1,6 +1,16 @@
 'use strict';
 const mongoose=require('mongoose');
 
+class Coffee{
+    constructor(result){
+        this.title=result.title;
+        this.description=result.description;
+        this.ingredients=result.ingredients;
+        this.img=result.img;
+        
+    }
+}
+
 const coffeeSchema=mongoose.Schema({
     title:String,
     description:String,
@@ -22,9 +32,10 @@ const coffeeSeed=()=>{
     // console.log(coffee)
 }
 
-// module.exports=coffeeModel;
-/*module.exports={
+ 
+module.exports={
                 coffeeModel,
-                coffeeSeed
+                // coffeeSeed,
+                Coffee
             };
-*/
+
