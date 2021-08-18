@@ -27,7 +27,7 @@ export class Home extends Component {
     createFavCard= async (e, itme) => {
         e.preventDefault();
         const dataBody={
-            img:itme.img,
+            image_url:itme.image_url,
             title:itme.title,
             description:itme.description,
             ingredients:itme.ingredients,
@@ -42,7 +42,7 @@ export class Home extends Component {
             {this.state.show && this.state.allDataCoffee.map(item => {
                 return(
                      <Card style={{ width: '20rem' , display:'inline-block' , margin:'15px' , border:'1px solid' }}>
-                <Card.Img variant="top" src={item.img} />
+                <Card.Img variant="top" src={item.image_url} />
                 <Card.Body>
                     <Card.Title>{item.title}</Card.Title>
                     <Card.Text>{item.description}</Card.Text>

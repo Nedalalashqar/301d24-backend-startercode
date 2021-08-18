@@ -27,13 +27,14 @@ function getFavoriteCoffee(req,res){
 // Create new fav coffee endpoint
 function createItemController(req,res){
     // provide logic here
-    const{img,title,description,ingredients}=req.body;
+    const{image_url,title,description,ingredients}=req.body;
+    console.log(req.body)
     coffeeModel.find({title:title},(error,data)=>{
         if(data.length > 0){
             console.log('this also')
         }else{
             let newCoffee =new coffeeModel({
-                img:img,
+                image_url:image_url,
                 title:title,
                 description:description,
                 ingredients :ingredients,
@@ -47,9 +48,9 @@ function createItemController(req,res){
 function updateItemController(req,res){
     // provide logic here
     const{id}=req.params;
-    const{img,title,description,ingredients}=req.body;
+    const{image_url,title,description,ingredients}=req.body;
     coffeeModel.findOne({_id:id},(error,item)=>{
-        item.img=img;
+        item.image_url=image_url;
         item.title=title;
         item.description=description;
         item.ingredients=ingredients;
@@ -64,8 +65,8 @@ function updateItemController(req,res){
 // delete coffee from MongoDB
 function deleteItemController(req,res){
     // provide your logic here
-    const {idx}=req.params;
-    coffeeModel.remove({_id:idx},(error,data)=>{
+    const {id}=req.params;
+    coffeeModel.remove({_id:id},(error,data)=>{
         coffeeModel.find({},(error,data) =>{
             res.send(data)
         })

@@ -6,10 +6,13 @@ class Coffee{
         this.title=result.title;
         this.description=result.description;
         this.ingredients=result.ingredients;
-        this.img=result.img;
+        this.image_url=result.image_url;
         
     }
+    
 }
+
+console.log(this.result.image_url);
 
 const coffeeSchema=mongoose.Schema({
     title:String,
